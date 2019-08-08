@@ -13,7 +13,6 @@ app = Flask(__name__)
 def index():
     dao = DAO()
     credits = dao.getCredits()
-    print(credits)
     return render_template('index.html',credits=credits)
 
 @app.route('/getgrades', methods=['POST'])

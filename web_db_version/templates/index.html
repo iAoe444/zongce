@@ -24,6 +24,13 @@
 <body>
     <ul class="layui-nav" lay-filter="">
         <li class="layui-nav-item layui-this">学业基础分计算工具</li>
+        <li class="layui-nav-item" style="position: absolute;right: 20px">
+            <a href="javascript:;">源码</a>
+            <dl class="layui-nav-child">
+                <dd><a href="https://github.com/iAoe444/zongce">github</a></dd>
+                <dd><a href="http://iaoe.xyz/project/2019/08/08/make-a-zongce-tool/">文档</a></dd>
+            </dl>
+        </li>
     </ul>
 
     <div style="margin: 15px">
@@ -143,6 +150,15 @@
                     , error: function () {
                         layer.msg('上传出现错误');
                     }
+                });
+            });
+            layui.use('element', function () {
+                var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+                //监听导航点击
+                element.on('nav(demo)', function (elem) {
+                    //console.log(elem)
+                    layer.msg(elem.text());
                 });
             });
         </script>
