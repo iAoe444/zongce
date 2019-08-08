@@ -4,12 +4,17 @@ from getGrades import get_grades
 import os
 import json
 import random
+import pymysql
+from dao import DAO
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return app.send_static_file('index.html')
+    dao = DAO()
+    credits = dao.getCredits()
+    print(credits)
+    return render_template('index.html',credits=credits)
 
 @app.route('/getgrades', methods=['POST'])
 def getGrades():
